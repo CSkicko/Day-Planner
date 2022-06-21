@@ -12,6 +12,7 @@
 // Global Variables
 // Array of time slots to display
 // Activities variable to store activities (for retrieving from local storage then adding to the page)
+// Container element
 
 // Functions
 // 1. getSavedActivities (1)
