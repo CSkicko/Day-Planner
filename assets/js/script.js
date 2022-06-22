@@ -35,14 +35,16 @@ function createPlannerRowHtml(time, content){
     return htmlContent
 }
 // 2b. renderDayPlanner (2)
-// function renderDayPlanner(){
-//     var plannerRow = $("<tr>");
-//     var rowTime = $("<td>");
-//     var rowActivity = $("<td>");
-//     var
-// }
+function renderDayPlanner(){
+    var rows = '';
+    for (var i = 0; i < timeSlots.length; i++){
+        rows = rows.concat(createPlannerRowHtml(timeSlots[i], 'Test'));
+    }
+    dayPlannerContainer.append(rows);
+}
 // 3. colorTimeSlots (3)
 // 4. inputSavedItems (4)
 // 5. saveActivities (6)
 // 6. updateCurrentTime (7)
 // 
+renderDayPlanner();
