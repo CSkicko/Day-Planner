@@ -69,6 +69,7 @@ textarea {
   transition: all 0.3s ease-in-out;
 }
 
+/* Footer added to create gap at bottom of page */
 footer {
   height: 30px;
 }
