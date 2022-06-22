@@ -23,12 +23,17 @@ var timeSlots = [
     "5PM"
 ]
 // Activities variable to store activities (for retrieving from local storage then adding to the page)
-var storedActivities = {};
+var storedActivities = [];
 // Container element
 var dayPlannerContainer = $(".container");
 
 // Functions
 // 1. getSavedActivities (1)
+function getSavedActivities(){
+    for (var i = 0; i < timeSlots.length; i++){
+        storedActivities.push(localStorage.getItem(timeSlots[i]));
+    }
+}
 // 2a. Create row
 function createPlannerRowHtml(time, content){
     var htmlContent = '<div class="row no-gutters"><div class="col-1 h-100"><p class="hour w-100 my-auto">' + time + '</label></div><div class="col-10 h-100"><input class="form-control description w-100 h-100" value="' + content + '"></div><div class="col-1 h-100"><button class="btn btn-primary saveBtn w-100 h-100"><i class="fas fa-save"></i></button></div></div>'
@@ -36,11 +41,19 @@ function createPlannerRowHtml(time, content){
 }
 // 2b. renderDayPlanner (2)
 function renderDayPlanner(){
+    getSavedActivities();
     var rows = '';
+    var activityContent;
     for (var i = 0; i < timeSlots.length; i++){
-        rows = rows.concat(createPlannerRowHtml(timeSlots[i], 'Test'));
+        if (storedActivities[i] != null){
+            activityContent = storedActivities[i]
+        } else {
+            activityContent = '';
+        }
+        rows = rows.concat(createPlannerRowHtml(timeSlots[i], activityContent));
     }
     dayPlannerContainer.append(rows);
+    storedActivities = [];
 }
 // 3. colorTimeSlots (3)
 function colorTimeSlots(currentTime){
