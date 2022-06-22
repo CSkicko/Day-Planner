@@ -43,6 +43,27 @@ function renderDayPlanner(){
     dayPlannerContainer.append(rows);
 }
 // 3. colorTimeSlots (3)
+function colorTimeSlots(currentTime){
+    var rowTime;
+    currentTime = moment(currentTime, "H");
+    for (var i = 0; i < timeSlots.length; i++){
+        rowTime = dayPlannerContainer.children().eq(i).children().eq(0).children('p').html();
+        rowTime = parseInt(moment(rowTime, "H A").format("H"));
+        if (rowTime < currentTime._i){
+            dayPlannerContainer.children().eq(i).children().eq(1).children().addClass('past');
+            dayPlannerContainer.children().eq(i).children().eq(1).children().removeClass('present');
+            dayPlannerContainer.children().eq(i).children().eq(1).children().removeClass('future');
+        } else if (rowTime > currentTime._i){
+            dayPlannerContainer.children().eq(i).children().eq(1).children().addClass('future');
+            dayPlannerContainer.children().eq(i).children().eq(1).children().removeClass('past');
+            dayPlannerContainer.children().eq(i).children().eq(1).children().removeClass('present');
+        } else {
+            dayPlannerContainer.children().eq(i).children().eq(1).children().addClass('present');
+            dayPlannerContainer.children().eq(i).children().eq(1).children().removeClass('past');
+            dayPlannerContainer.children().eq(i).children().eq(1).children().removeClass('future');
+        }
+    }
+}
 // 4. inputSavedItems (4)
 // 5. saveActivities (6)
 // 6. updateCurrentTime (7)
