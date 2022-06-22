@@ -11,12 +11,31 @@
 
 // Global Variables
 // Array of time slots to display
-// Activities variable to store activities (for retrieving from local storage then adding to the page)
-// Container element
+// var timeSlots = [
+//     "9AM",
+//     "10AM",
+//     "11AM",
+//     "12PM",
+//     "1PM",
+//     "2PM",
+//     "3PM",
+//     "4PM",
+//     "5PM"
+// ]
+// // Activities variable to store activities (for retrieving from local storage then adding to the page)
+// var storedActivities = {};
+// // Container element
+// var dayPlannerContainer = $(".container");
 
-// Functions
-// 1. getSavedActivities (1)
-// 2. renderDayPlanner (2)
+// // Functions
+// // 1. getSavedActivities (1)
+// // 2. renderDayPlanner (2)
+// function renderDayPlanner(){
+//     var plannerRow = $("<tr>");
+//     var rowTime = $("<td>");
+//     var rowActivity = $("<td>");
+//     var
+// }
 // 3. colorTimeSlots (3)
 // 4. inputSavedItems (4)
 // 5. saveActivities (6)
