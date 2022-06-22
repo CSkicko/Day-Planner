@@ -58,15 +58,15 @@ function renderDayPlanner(){
 // 3. colorTimeSlots (3)
 function colorTimeSlots(currentTime){
     var rowTime;
-    currentTime = moment(currentTime, "H");
+    currentTime = parseInt(currentTime);
     for (var i = 0; i < timeSlots.length; i++){
         rowTime = dayPlannerContainer.children().eq(i).children().eq(0).children('p').html();
         rowTime = parseInt(moment(rowTime, "H A").format("H"));
-        if (rowTime < currentTime._i){
+        if (rowTime < currentTime){
             dayPlannerContainer.children().eq(i).children().eq(1).children().addClass('past');
             dayPlannerContainer.children().eq(i).children().eq(1).children().removeClass('present');
             dayPlannerContainer.children().eq(i).children().eq(1).children().removeClass('future');
-        } else if (rowTime > currentTime._i){
+        } else if (rowTime > currentTime){
             dayPlannerContainer.children().eq(i).children().eq(1).children().addClass('future');
             dayPlannerContainer.children().eq(i).children().eq(1).children().removeClass('past');
             dayPlannerContainer.children().eq(i).children().eq(1).children().removeClass('present');
@@ -77,6 +77,7 @@ function colorTimeSlots(currentTime){
         }
     }
 }
+
 // 4. inputSavedItems (4)
 function saveItem(event){
     event.preventDefault();
@@ -86,8 +87,16 @@ function saveItem(event){
     var rowTask = rowElement.children().eq(1).children().eq(0).val();
     localStorage.setItem(rowTime, rowTask);
 }
-// 5. saveActivities (6)
-// 6. updateCurrentTime (7)
-// 
+
+// 5. updateCurrentTime (7)
+function updateCurrentTime(){
+    var timerInterval = setInterval(function() {
+        var currentHour = moment().format("H");
+        colorTimeSlots(currentHour);
+    }, 1000);
+}
+
+
 renderDayPlanner();
+updateCurrentTime();
 $(".saveBtn").on("click", saveItem);
