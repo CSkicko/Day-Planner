@@ -65,7 +65,16 @@ function colorTimeSlots(currentTime){
     }
 }
 // 4. inputSavedItems (4)
+function saveItem(event){
+    event.preventDefault();
+    var clickedButton = $(this);
+    var rowElement = clickedButton.parent().parent();
+    var rowTime = rowElement.children().eq(0).children().eq(0).html();
+    var rowTask = rowElement.children().eq(1).children().eq(0).val();
+    localStorage.setItem(rowTime, rowTask);
+}
 // 5. saveActivities (6)
 // 6. updateCurrentTime (7)
 // 
 renderDayPlanner();
+$(".saveBtn").on("click", saveItem);
