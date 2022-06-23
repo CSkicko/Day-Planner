@@ -29,7 +29,7 @@ The developed website provides:
 
 ### Website
 Use the following link to view the final rendered website:
-
+https://cskicko.github.io/Day-Planner/
 
 A screenshot of the final product is provided below:
 
