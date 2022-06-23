@@ -32,4 +32,5 @@ Use the following link to view the final rendered website:
 https://cskicko.github.io/Day-Planner/
 
 A screenshot of the final product is provided below:
+![Day-Planner_](https://user-images.githubusercontent.com/84214056/175181281-8d921fe6-79f6-46ad-9fb1-11b1807f92d8.jpg)
 
